@@ -1,0 +1,30 @@
+1. A Runtime exception olyan kivétel aminek a kezelését az Intellij nem hajtja végre, ezért a nem ellenőrzött
+   kivételekhez tartozik.
+   Az exception az ellenőrzött kivételekhez tartozik, ezeket a programozónak kell kezelni, pl fájl beolvasásnál.
+
+2. Iterator<VBmatch> iterator = vbMatches.iterator();
+
+           while (iterator.hasNext()) {
+               VBmatch vbMatch = iterator.next();
+
+               if (vbMatch.getStage().equals("Group A")) {
+                   iterator.remove();
+               }
+           }
+           //Így kitörli a vbMatches listánkból a "Group A" tartalmú meccseket!
+
+3. Absztrakció: absztrakt osztályok és interfacek használatável érhetőek el, ilyenkor a belső logika rejtve marad.
+                Például az absztrakt metódusokat is csak az öröklő osztályban valósítjuk meg.
+   Enkapszuláció lényege, hogy a logikailag összetartozó dolgok egy egységet képeznek. Például az osztály és a hozzá tartozó
+   fieldek és metódusok egysége.
+   Öröklődés: az osztályok öröklődhetnek egymásból, az "Ősosztály" az Object, ebből származnak le közvetve vagy közvetlenül az
+              osztályok. Az öröklő osztály használhatja az "Ősosztály" fieldjeit a "super" kulcsszó használatával.
+   Polimorfizmus (többalakúság): a metódusoknak ugyanaz a neve, de mást csinálnak. Két fajtája van az overloading és overriding.
+                                Overloading: a bemeneti paraméterek vannak megváltoztatva.
+                                Overriding: az öröklő osztály felülírja a szülő osztály metódusát.
+   Asszociáció, aggregáció és kompozíció: Az asszociáció arra szolgál, hogy megtudjuk két objektum között van-e kapcsolat.
+   Az aggregáció az asszociáció megvalósítása olyan módon, hogy a két összetartozó objektum külön is tud működni.
+   A kompozíció pedig az asszociáció megvalósítása olyan módon, hogy az összetartozó objektumok közül az egyik nem
+   tud létezni a másik nélkül.
+
+4. Map<String, <List>> matches = new TreeMap<>()
