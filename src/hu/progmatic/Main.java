@@ -40,14 +40,15 @@ public class Main {
             System.out.println("2. Maximum goal difference:" + maximumGoalsDifference(vbMatches, chosedYear));
 
             System.out.println("3. The player has won:" + wonnedMatchesSummary(vbMatches, chosedYear));
-            System.out.println(goalsSummaryByStagesAndYear(vbMatches, "Group A", chosedYear));
+
             System.out.println("Total goals by stage:");
 
             Map<String, Integer> totalGoalsByStage = new TreeMap<>();
             for(VBmatch vbMatch : vbMatches){
-                int count = totalGoalsByStage.getOrDefault(vbMatch.getStage(), 0);
-                totalGoalsByStage.put(vbMatch.getStage(), count + 1);
-
+                if(vbMatch.getYear() == chosedYear) {
+                    int count = totalGoalsByStage.getOrDefault(vbMatch.getStage(), 0);
+                    totalGoalsByStage.put(vbMatch.getStage(), count + (vbMatch.getGoals_a() + vbMatch.getGoals_b()));
+                }
             }
             for (String stages : totalGoalsByStage.keySet()) {
                 System.out.println(stages + ": " + totalGoalsByStage.get(stages));
